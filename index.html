@@ -8,7 +8,7 @@
 <body>
 	<div id="appMap" v-on:click="coordinates()">
 		<img src="/images/topo-co.jpg">
-		<div id="marker" v-for="marker in markers" v-bind:style="{ top : mainVm.marker }">
+		<div v-for="marker in markers" v-bind:style="{'top': '100px', 'left': '100px'}" id="marker">
 		</div>
 	</div>
 <script src="main.js"></script>
