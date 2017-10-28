@@ -9,11 +9,16 @@ body {
 	position: relative;
 }
 
-#marker {
+#mainMarker {
 
 	position: absolute;
 	width: 1rem;
 	height: 1rem;
 	border-radius: 2rem;
 	background-color: blue;
+	/*transform: translateX(-50%);*/
+	transform: translateY(-50%);
+	transform: translate(-50%);
+	
+	cursor: pointer;
 }
