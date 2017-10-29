@@ -13,10 +13,45 @@
 	<div id="appMap" >
 <!-- control buttons -->	
 		<div id="controlBtnGroup" class="btn-group" role="group" aria-label="Marker_Note_Control">
-			  <button type="button" class="btn btn-secondary clear" v-on:click="clearAllMarkers()">Clear All</button>
+			<button type="button" 
+			  class="btn btn-secondary clear" data-toggle="modal" 
+			  data-target="#clearConfirmation">
+				Clear All
+			</button>
 			  <button type="button" class="btn btn-secondary" v-on:click="toggleAllNotes()">Show/Hide Notes</button>
 		</div>
-<!-- map -->
+<!-- CLEAR confirmation -->
+			<div class="modal fade" id="clearConfirmation" tabindex="-1" role="dialog" aria-labelledby="clearModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="clearModalLabel">Clear ALL Markers?</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        Are you sure you want to CLEAR ALL the MARKERS on screen?
+			      </div>
+			      <div class="modal-footer">
+			        <button 
+				        type="button" 
+				        class="clear-btn btn-secondary" 
+				        data-dismiss="modal">
+				    	Cancel
+			    	</button>
+			        <button 
+				        type="button" 
+				        class="clear-btn btn-primary"
+				        data-dismiss="modal" 
+				        v-on:click="clearAllMarkers()">
+				    	Clear
+					</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+<!-- Map -->
 		<img id="mapImage" src="/images/cropped-topo-co.jpg" v-on:click="placeMarker(); placeNote()">
 		<img 
 			id="mainMarker"
@@ -38,8 +73,10 @@
 				placeholder="Note about location">
 			</textarea>
 			<br>
-			<button v-on:click="saveNote(note)">Done</button>
-			<button v-on:click="cancelNote(note)">Remove</button>
+			<button 
+				v-on:click="saveNote(note)">
+				Done
+			</button>
 			<p id="locationMessage"><b>Located @ </b><span>{{note.positionX}}</span> and <span>{{note.positionY}}</span></p>		
 		</div>
 	</div>	

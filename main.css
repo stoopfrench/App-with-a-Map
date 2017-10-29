@@ -16,6 +16,7 @@ body {
 
 .btn {
 
+
 	opacity: 0.8;
 	cursor: pointer;
 	font-variant: small-caps;
@@ -34,6 +35,22 @@ body {
 	
 	background-color: #A00B08;
 
+}
+
+.modal-content {
+
+	opacity: 0.8;
+}
+
+.clear-btn {
+
+	font-variant: small-caps;
+	border-radius: .5rem;
+}
+
+.clear-btn.btn-primary {
+
+	background-color: #A00B08;
 }
 
 #appMap {
@@ -69,11 +86,12 @@ body {
 	position: absolute;
 	border: 2px solid black;
 	padding: 1rem;
-	background-image: radial-gradient(circle at center, #BBAF84, #B2AB7B);
+	background-image: radial-gradient(circle at center, #A29B72, #A2A372);
 	background-color: #b8aa7f;
 	box-shadow: 0px 0px 1px 1px;
 	border-radius: .5rem;
 	opacity: 0.9;
+	padding-bottom: 0;
 }
 
 #inputText {
@@ -84,12 +102,15 @@ body {
 
 #input button {
 
-	background-color: #EAD3B1;
+	background-color: #D5BEA3;
 	outline: none;
 	font-variant: small-caps;
 	font-weight: 500;
 	border: 2px solid black;
 	border-radius: .5rem;
+	margin-right: 1rem;
+	margin-top: .5rem;
+
 }
 
 #locationMessage {
