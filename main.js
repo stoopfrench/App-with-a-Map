@@ -4,6 +4,9 @@ var mainVm = new Vue({
 	data: {
 		markers: [],
 		notes: [],
+
+		isDisabled: false,
+		isHidden: false,
 		
 		
 	
@@ -28,6 +31,7 @@ var mainVm = new Vue({
 
 			this.notes.push({positionX, positionY})
 
+
 			// console.log(this.notes)
 
 		},
@@ -48,6 +52,17 @@ var mainVm = new Vue({
 			this.notes.splice(index,1)
 
 		},
+
+		saveNote: function(note) {
+
+			this.isDisabled = true
+			this.isHidden = true
+		},
+
+		showNote: function(note) {
+
+			this.isHidden = false
+		}
 
 
 	},

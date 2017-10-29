@@ -16,10 +16,11 @@
 			v-for="note in notes"
 			v-bind:style="{top: marker.positionY, left: marker.positionX}" 
 			v-on:click="remove(marker)"
-			v-on:mouseOver=""> 
+			v-on:mouseEnter="showNote(note)"> 
 		<div id="input"
 			v-for="note in notes"
-			v-bind:style="{top: note.positionY, left: note.positionX}">
+			v-bind:style="{top: note.positionY, left: note.positionX}"
+			v-bind:class="{disabled: isDisabled, hidden: isHidden}">
 			<textarea 
 				id="inputText"	
 				cols="40" 
@@ -27,8 +28,10 @@
 				placeholder="Note about location">
 			</textarea>
 			<br>
-			<button v-on:click="">Save</button>
-			<button v-on:click="cancelNote(note)">Cancel</button>
+			<button v-on:click="saveNote(note)">Done</button>
+			<button v-on:click="cancelNote(note)">Remove</button>
+			<p id="locationMessage"><b>Located @ </b><span>{{note.positionX}}</span> and <span>{{note.positionY}}</span></p>
+			
 		</div>
 	</div>	
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
