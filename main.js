@@ -2,13 +2,11 @@ var mainVm = new Vue({
 
 	el: "#appMap",
 	data: {
+		
 		markers: [],
 		notes: [],
 
-		isDisabled: false,
-		isHidden: false,
-		
-		
+		isHidden: false,	
 	
 	},
 
@@ -20,19 +18,18 @@ var mainVm = new Vue({
 			var positionY = event.pageY + 'px'
 
 			this.markers.push({positionX, positionY})
-
-			
+	
 		},
 
 		placeNote: function() {
+
+			this.isHidden = false
 
 			var positionX = event.pageX + 10 + 'px'
 			var positionY = event.pageY + 10 + 'px'
 
 			this.notes.push({positionX, positionY})
 
-
-			// console.log(this.notes)
 
 		},
 
@@ -43,26 +40,32 @@ var mainVm = new Vue({
 			this.markers.splice(index,1)
 
 			this.notes.splice(index,1)
+		
 		},
 
-		cancelNote: function(note) {
 
-			var index = this.notes.indexOf(note)
+		clearAllMarkers: function() {
 
-			this.notes.splice(index,1)
-
+			this.markers = []
+			this.notes = []
+		
 		},
+		
+		toggleAllNotes: function() {
 
-		saveNote: function(note) {
-
-			this.isDisabled = true
-			this.isHidden = true
-		},
-
-		showNote: function(note) {
-
+			if(this.isHidden === true) {
+			
 			this.isHidden = false
-		}
+			
+			}
+
+			else {
+
+				this.isHidden = true
+			}
+		
+		},
+
 
 
 	},
