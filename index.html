@@ -11,8 +11,9 @@
 		<img id="mapImage" src="/images/cropped-topo-co.jpg" v-on:click="placeMarker(); placeNote()">
 		<img 
 			id="mainMarker"
-			src="/images/pushpin2.png" 
+			src="/images/red-hand-drawn-cross.png" 
 			v-for="marker in markers" 
+			v-for="note in notes"
 			v-bind:style="{top: marker.positionY, left: marker.positionX}" 
 			v-on:click="remove(marker)"
 			v-on:mouseOver=""> 
@@ -20,14 +21,14 @@
 			v-for="note in notes"
 			v-bind:style="{top: note.positionY, left: note.positionX}">
 			<textarea 
-				id="inputText" 
+				id="inputText"	
 				cols="40" 
 				rows="3"
 				placeholder="Note about location">
 			</textarea>
 			<br>
-			<button>Save</button>
-			<button>Cancel</button>
+			<button v-on:click="">Save</button>
+			<button v-on:click="cancelNote(note)">Cancel</button>
 		</div>
 	</div>	
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

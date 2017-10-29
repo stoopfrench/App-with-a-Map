@@ -36,7 +36,7 @@ body {
 	position: absolute;
 	width: 1.75rem;
 	height: 1.75rem;
-	transform: translate(-50%, -100%);
+	transform: translate(-50%, -50%);
 	cursor: pointer;
 }
 
@@ -47,11 +47,22 @@ body {
 	padding: 1rem;
 	background-image: radial-gradient(circle at center, #BBAF84, #B2AB7B);
 	background-color: #b8aa7f;
+	box-shadow: 0px 0px 1px 1px;
 	border-radius: .5rem;
+	opacity: 0.9;
 }
 
 #inputText {
 
 	border: 2px solid black;
-	box-shadow: 0px 0px 1px 1px;
+	outline: none;
+}
+
+#input button {
+
+	background-color: #EAD3B1;
+	outline: none;
+	font-variant: small-caps;
+	border: 2px solid black;
+	border-radius: .5rem;
 }

@@ -5,6 +5,7 @@ var mainVm = new Vue({
 		markers: [],
 		notes: [],
 		
+		
 	
 	},
 
@@ -22,8 +23,8 @@ var mainVm = new Vue({
 
 		placeNote: function() {
 
-			var positionX = event.pageX + 'px'
-			var positionY = event.pageY + 'px'
+			var positionX = event.pageX + 10 + 'px'
+			var positionY = event.pageY + 10 + 'px'
 
 			this.notes.push({positionX, positionY})
 
@@ -37,11 +38,16 @@ var mainVm = new Vue({
 
 			this.markers.splice(index,1)
 
-			// var noteIndex = this.notes.indexOf(note)
-
 			this.notes.splice(index,1)
 		},
-	
+
+		cancelNote: function(note) {
+
+			var index = this.notes.indexOf(note)
+
+			this.notes.splice(index,1)
+
+		},
 
 
 	},
