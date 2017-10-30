@@ -5,7 +5,6 @@ var mainVm = new Vue({
 		
 		markers: [],
 		inputs: [],
-		notes: [],
 
 		isHidden: false,
 		coordinates: "",
@@ -49,7 +48,7 @@ var mainVm = new Vue({
 
 		hideInput: function(input) {
 
-			var index = this.inputs.indexOf(input) 
+			// this.isHidden = true 
 
 
 		},
