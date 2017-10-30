@@ -2,8 +2,7 @@ body {
 
 	margin: 0;
 	padding: 0;
-	background-color: black;
-	
+	background-color: black;	
 }
 
 .btn-group {
@@ -11,35 +10,30 @@ body {
 	position: fixed;
 	border: 1px solid black;
 	border-radius: .5rem;
-
 }
 
 .btn {
 
 
-	opacity: 0.8;
+	opacity: 0.9;
 	cursor: pointer;
 	font-variant: small-caps;
 	font-weight: 600;
-	border: 1px solid black;
+	border: 2px solid black;
 	background-color: #624E3E;
 }
 
 .btn:hover {
 
-	background-color: #554638;
-	opacity: 1;
+	background-color: #C5A27F;
+	color: black;
 }
 
 .btn.clear:hover {
 	
 	background-color: #A00B08;
+	color: white;
 
-}
-
-.modal-content {
-
-	opacity: 0.8;
 }
 
 .clear-btn {
@@ -75,18 +69,18 @@ body {
 #mainMarker {
 
 	position: absolute;
-	width: 1.75rem;
-	height: 1.75rem;
+	width: 2rem;
+	height: 2rem;
 	transform: translate(-50%, -50%);
 	cursor: pointer;
 }
 
-#input {
+#inputNote {
 
 	position: absolute;
 	border: 2px solid black;
 	padding: 1rem;
-	background-image: radial-gradient(circle at center, #A29B72, #A2A372);
+	background-image: radial-gradient(circle at center, #826852, #7B624E);
 	background-color: #b8aa7f;
 	box-shadow: 0px 0px 1px 1px;
 	border-radius: .5rem;
@@ -97,10 +91,13 @@ body {
 #inputText {
 
 	border: 2px solid black;
+	border-radius: .5rem;
 	outline: none;
+	background-color: #EBD0B5;
+	color: #413B34;
 }
 
-#input button {
+#inputNote button {
 
 	background-color: #D5BEA3;
 	outline: none;
@@ -110,18 +107,48 @@ body {
 	border-radius: .5rem;
 	margin-right: 1rem;
 	margin-top: .5rem;
-
 }
 
 #locationMessage {
 
 	display: inline-block;
 	font-variant: small-caps;
+	color: black;
+	font-size: 1.125rem;
+	font-weight: 500;
 }
 
 #locationMessage span {
 
-	color: green;
+	color: white;
+}
+
+#note {
+
+	position: absolute;
+	border: 2px solid black;
+	padding: 1rem;
+	background-image: radial-gradient(circle at center, #826852, #7B624E);
+	background-color: #b8aa7f;
+	box-shadow: 0px 0px 1px 1px;
+	border-radius: .5rem;
+	opacity: 0.9;
+	padding-bottom: 0;
+}
+
+#coordinates {
+
+	position: fixed;
+	right: 0;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 10rem;
+	height: 40px;
+	text-align: center;
+	background-color: #C5A27F;
+	border: 2px solid black;
+	border-radius: .5rem;
+
 }
 
 .hidden {

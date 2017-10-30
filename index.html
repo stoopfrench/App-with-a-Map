@@ -11,6 +11,9 @@
 </head>
 <body>
 	<div id="appMap" >
+	  	<div id="coordinates">
+			<p>{{coordinates}}</p>
+		</div>
 <!-- control buttons -->	
 		<div id="controlBtnGroup" class="btn-group" role="group" aria-label="Marker_Note_Control">
 			<button type="button" 
@@ -26,9 +29,6 @@
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <h5 class="modal-title" id="clearModalLabel">Clear ALL Markers?</h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
 			      </div>
 			      <div class="modal-body">
 			        Are you sure you want to CLEAR ALL the MARKERS on screen?
@@ -52,32 +52,37 @@
 			  </div>
 			</div>
 <!-- Map -->
-		<img id="mapImage" src="/images/cropped-topo-co.jpg" v-on:click="placeMarker(); placeNote()">
+		<img 
+		id="mapImage" 
+		src="/images/cropped-topo-co.jpg" 
+		v-on:click="placeMarker(); placeInput()"
+		v-on:mousemove="showCoordinates()">
 		<img 
 			id="mainMarker"
 			src="/images/red-hand-drawn-cross.png" 
 			v-for="marker in markers" 
-			v-for="note in notes"
+			v-for="input in inputs"
 			v-bind:style="{top: marker.positionY, left: marker.positionX}" 
 			v-on:click="remove(marker)"
-			v-on:mouseEnter="showNote(note)"> 
+			v-on:mousemove=""> 
 <!-- popup input -->		
-		<div id="input"
-			v-for="note in notes"
-			v-bind:style="{top: note.positionY, left: note.positionX}"
-			v-bind:class="{disabled: isDisabled, hidden: isHidden}">
+		<div 
+			id="inputNote"
+			v-for="input in inputs"
+			v-bind:style="{top: input.positionY, left: input.positionX}"
+			v-bind:class="{hidden: isHidden}">
 			<textarea 
 				id="inputText"	
 				cols="40" 
 				rows="3"
-				placeholder="Note about location">
+				placeholder="Info about location">
 			</textarea>
 			<br>
 			<button 
-				v-on:click="saveNote(note)">
+				v-on:click="hideInput(input);">
 				Done
 			</button>
-			<p id="locationMessage"><b>Located @ </b><span>{{note.positionX}}</span> and <span>{{note.positionY}}</span></p>		
+			<p id="locationMessage"> Location: <span>{{input.positionX}}</span> and <span>{{input.positionY}}</span></p>		
 		</div>
 	</div>	
 

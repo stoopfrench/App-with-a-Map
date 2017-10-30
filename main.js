@@ -4,34 +4,56 @@ var mainVm = new Vue({
 	data: {
 		
 		markers: [],
+		inputs: [],
 		notes: [],
 
-		isHidden: false,	
+		isHidden: false,
+		coordinates: "",
 	
 	},
 
 	methods: {
+
+
+		showCoordinates: function() {
+
+			var currentX = event.pageX
+			var currentY = event.pageY
+
+			$('#coordinates').text(currentX + ' (x) , ' + currentY + ' (y)')
+		},
 
 		placeMarker: function() {
 
 			var positionX = event.pageX + 'px'
 			var positionY = event.pageY + 'px'
 
+
 			this.markers.push({positionX, positionY})
 	
 		},
 
-		placeNote: function() {
+		placeInput: function() {
 
-			this.isHidden = false
+			// this.isHidden = false
 
 			var positionX = event.pageX + 10 + 'px'
 			var positionY = event.pageY + 10 + 'px'
 
-			this.notes.push({positionX, positionY})
+
+			this.inputs.push({positionX, positionY})
 
 
 		},
+
+
+		hideInput: function(input) {
+
+			var index = this.inputs.indexOf(input) 
+
+
+		},
+
 
 		remove: function(marker) {
 
@@ -39,7 +61,8 @@ var mainVm = new Vue({
 
 			this.markers.splice(index,1)
 
-			this.notes.splice(index,1)
+			this.inputs.splice(index,1)
+	
 		
 		},
 
@@ -47,7 +70,8 @@ var mainVm = new Vue({
 		clearAllMarkers: function() {
 
 			this.markers = []
-			this.notes = []
+			this.inputs = []
+
 		
 		},
 		
@@ -55,8 +79,7 @@ var mainVm = new Vue({
 
 			if(this.isHidden === true) {
 			
-			this.isHidden = false
-			
+				this.isHidden = false
 			}
 
 			else {
